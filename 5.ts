@@ -4,6 +4,16 @@
 // Brute Force
 // time complexity: O(n^2 * n) = O(n^3) || space complexity: O(1)
 function longestPalindrome1(s: string): string {
+  function isPalindromic(s: string) {
+    const count = Math.floor(s.length / 2);
+
+    for (let i = 0; i < count; i++) {
+      if (s[i] !== s[s.length - 1 - i]) return false;
+    }
+
+    return true;
+  }
+
   let length = 0;
   let result = "";
 
@@ -32,15 +42,9 @@ function longestPalindrome2(s: string): string {
     front = i;
     rear = i;
 
-    while (front >= 0 && rear <= s.length - 1) {
-      const targetString = s.slice(front, rear + 1);
-
-      if (targetString.length > result.length) {
-        if (isPalindromic(targetString)) {
-          result = targetString;
-        } else {
-          break;
-        }
+    while (front >= 0 && rear <= s.length - 1 && s[front] === s[rear]) {
+      if (rear - front + 1 > result.length) {
+        result = s.slice(front, rear + 1);
       }
 
       front -= 1;
@@ -50,15 +54,11 @@ function longestPalindrome2(s: string): string {
     front = i;
     rear = i + 1;
 
-    while (front >= 0 && rear <= s.length - 1) {
+    while (front >= 0 && rear <= s.length - 1 && s[front] === s[rear]) {
       const targetString = s.slice(front, rear + 1);
 
-      if (targetString.length > result.length) {
-        if (isPalindromic(targetString)) {
-          result = targetString;
-        } else {
-          break;
-        }
+      if (rear - front + 1 > result.length) {
+        result = s.slice(front, rear + 1);
       }
 
       front -= 1;
@@ -67,14 +67,4 @@ function longestPalindrome2(s: string): string {
   }
 
   return result;
-}
-
-function isPalindromic(s: string) {
-  const count = Math.floor(s.length / 2);
-
-  for (let i = 0; i < count; i++) {
-    if (s[i] !== s[s.length - 1 - i]) return false;
-  }
-
-  return true;
 }
