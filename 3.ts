@@ -39,8 +39,26 @@ function lengthOfLongestSubstring2(s: string): number {
 }
 
 // Sliding Window
+// time complexity: O(2n) = O(n) || space complexity: O(n)
 function lengthOfLongestSubstring3(s: string): number {
   let result = 0;
+  let front = 0;
+  let rear = 0;
+
+  const slidingWindow = Array.from(s.slice(front, rear + 1));
+  result = Math.max(result, slidingWindow.length);
+
+  while (front + 1 < s.length) {
+    if (!slidingWindow.includes(s[front + 1])) {
+      slidingWindow.push(s[front + 1]);
+      front += 1;
+    } else {
+      slidingWindow.shift();
+      rear += 1;
+    }
+
+    result = Math.max(result, slidingWindow.length);
+  }
 
   return result;
 }
