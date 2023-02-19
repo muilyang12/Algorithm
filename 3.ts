@@ -1,6 +1,7 @@
 // 3. Longest Substring Without Repeating Characters
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/
 
+// Brute Force
 // time complexity: O(n^3) || space complexity: O(n)
 function lengthOfLongestSubstring1(s: string): number {
   let result = s.length > 0 ? 1 : 0;
