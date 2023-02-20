@@ -2,7 +2,7 @@
 // https://leetcode.com/problems/number-of-islands/
 
 // Depth First Search (DFS) // Recursive Function
-// time complexity: O(2n) = O(n) || space complexity: O(2n) = O()
+// time complexity: O(2n) = O(n) || space complexity: O(2n) = O(n)
 function numIslands1(grid: string[][]): number {
   let result = 0;
 
