@@ -40,7 +40,7 @@ function numIslands1(grid: string[][]): number {
 }
 
 // Depth First Search (DFS) // Stack
-// time complexity: O(2n) = O(n) || space complexity: O(2n) = O()
+// time complexity: O(2n) = O(n) || space complexity: O(2n) = O(n)
 function numIslands2(grid: string[][]): number {
   let result = 0;
 

@@ -4,32 +4,49 @@
 // Breadth First Search (BFS) // Queue
 // time complexity: O(n) || space complexity: O(n)
 function isSameTree1(p: TreeNode | null, q: TreeNode | null): boolean {
-  if (!p && !q) return true;
-  if (!p || !q) return false;
-
-  const queue: [TreeNode, TreeNode][] = [];
+  const queue: [TreeNode | null, TreeNode | null][] = [];
   queue.push([p, q]);
 
   while (queue.length > 0) {
-    const [pp, qq] = queue.shift() as [TreeNode, TreeNode];
-
+    const [pp, qq] = queue.shift() as [TreeNode | null, TreeNode | null];
+    if (!pp && !qq) continue;
+    if (!pp || !qq) return false;
     if (pp.val !== qq.val) return false;
 
-    if (pp.left && qq.left) {
-      queue.push([pp.left, qq.left]);
-    } else if (!pp.left && !qq.left) {
-    } else {
-      return false;
-    }
-    if (pp.right && qq.right) {
-      queue.push([pp.right, qq.right]);
-    } else if (!pp.right && !qq.right) {
-    } else {
-      return false;
-    }
+    queue.push([pp.left, qq.left]);
+    queue.push([pp.right, qq.right]);
   }
 
   return true;
+}
+
+// Depth First Search (DFS) // Stack
+// time complexity: O(n) || space complexity: O(n)
+function isSameTree2(p: TreeNode | null, q: TreeNode | null): boolean {
+  const stack: [TreeNode | null, TreeNode | null][] = [];
+  stack.push([p, q]);
+
+  while (stack.length > 0) {
+    const [pp, qq] = stack.pop() as [TreeNode | null, TreeNode | null];
+    if (!pp && !qq) continue;
+    if (!pp || !qq) return false;
+    if (pp.val !== qq.val) return false;
+
+    stack.push([pp.left, qq.left]);
+    stack.push([pp.right, qq.right]);
+  }
+
+  return true;
+}
+
+// Depth First Search (DFS) // Recursive Function
+// time complexity: O(n) || space complexity: O(n)
+function isSameTree3(p: TreeNode | null, q: TreeNode | null): boolean {
+  if (!p && !q) return true;
+  if (!p || !q) return false;
+  if (p.val != q.val) return false;
+
+  return isSameTree3(p.left, q.left) && isSameTree3(p.right, q.right);
 }
 
 class TreeNode {
