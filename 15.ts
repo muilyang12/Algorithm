@@ -52,4 +52,39 @@ function threeSum2(nums: number[]): number[][] {
 
   return result;
 }
-        
+
+// Sorting + Two Pointer
+// time complexity: O(2 * n^2) = O(n^2) || space complexity: O(1)
+function threeSum3(nums: number[]): number[][] {
+  const result: number[][] = [];
+  const added = new Set();
+
+  const copiedNums = [...nums];
+  const sortedNums = copiedNums.sort((a, b) => a - b);
+
+  for (let i = 0; i < sortedNums.length - 2; i++) {
+    let left = i + 1;
+    let right = sortedNums.length - 1;
+
+    while (left < right) {
+      const complement = 0 - sortedNums[i];
+
+      if (sortedNums[left] + sortedNums[right] < complement) {
+        left += 1;
+      } else if (sortedNums[left] + sortedNums[right] > complement) {
+        right -= 1;
+      } else {
+        const answer = [sortedNums[i], sortedNums[left], sortedNums[right]];
+
+        if (!added.has(answer.join(""))) {
+          result.push(answer);
+          added.add(answer.join(""));
+
+          break;
+        }
+      }
+    }
+  }
+
+  return result;
+}
