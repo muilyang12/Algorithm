@@ -2,7 +2,7 @@
 // https://leetcode.com/problems/valid-anagram/
 
 // Sorting (Merge Sort)
-// time complexity: O(O(nlogn) || space complexity: O(2n) = O(n)
+// time complexity: O(nlogn) || space complexity: O(n)
 function isAnagram1(s: string, t: string): boolean {
   if (s.length !== t.length) return false;
 
@@ -60,4 +60,30 @@ function isAnagram1(s: string, t: string): boolean {
       str[start + index] = char;
     });
   }
+}
+
+// Hash Table
+// time complexity: O(2n) = O(n) || space complexity: O(n)
+function isAnagram2(s: string, t: string): boolean {
+  if (s.length !== t.length) return false;
+
+  const hashTable = {};
+
+  for (let i = 0; i < s.length; i++) {
+    if (!hashTable[s[i]]) {
+      hashTable[s[i]] = 1;
+
+      continue;
+    }
+
+    hashTable[s[i]] += 1;
+  }
+
+  for (let i = 0; i < t.length; i++) {
+    if (!hashTable[t[i]]) return false;
+
+    hashTable[t[i]] -= 1;
+  }
+
+  return true;
 }
