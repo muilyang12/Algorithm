@@ -1,7 +1,7 @@
 // 21. Merge Two Sorted Lists
 // https://leetcode.com/problems/merge-two-sorted-lists/
 
-// Merge Sort
+// Two Pointer
 // time complexity: O(m + n) || space complexity: O(1)
 function mergeTwoLists1(
   list1: ListNode | null,
