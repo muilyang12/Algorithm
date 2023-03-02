@@ -68,6 +68,7 @@ function maxSubArray4(nums: number[]): number {
 }
 
 // Divide-and-conquer (Like merge sorting)
+// time complexity: O(nlogn) || space complexity: O(logn)
 function maxSubArray5(nums: number[]): number {
   return findMaxSum(nums, 0, nums.length - 1);
 }
