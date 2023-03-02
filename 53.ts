@@ -66,3 +66,43 @@ function maxSubArray4(nums: number[]): number {
 
   return result;
 }
+
+// Divide-and-conquer (Like merge sorting)
+function maxSubArray5(nums: number[]): number {
+  return findMaxSum(nums, 0, nums.length - 1);
+}
+
+function findMaxSum(nums: number[], left: number, right: number): number {
+  if (left === right) return nums[left];
+
+  const mid = Math.floor((left + right) / 2);
+
+  const leftMaxSum = findMaxSum(nums, left, mid);
+  const rightMaxSum = findMaxSum(nums, mid + 1, right);
+  const crossingMaxSum = findCrossingMaxSum(nums, left, mid, right);
+
+  return Math.max(leftMaxSum, rightMaxSum, crossingMaxSum);
+}
+
+function findCrossingMaxSum(
+  nums: number[],
+  left: number,
+  mid: number,
+  right: number
+): number {
+  let tempLeftSum = 0;
+  let resultLeftSum = -Infinity;
+  for (let i = mid; i >= left; i--) {
+    tempLeftSum += nums[i];
+    resultLeftSum = Math.max(resultLeftSum, tempLeftSum);
+  }
+
+  let tempRightSum = 0;
+  let resultRightSum = -Infinity;
+  for (let i = mid + 1; i <= right; i++) {
+    tempRightSum += nums[i];
+    resultRightSum = Math.max(resultRightSum, tempRightSum);
+  }
+
+  return resultLeftSum + resultRightSum;
+}
