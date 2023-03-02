@@ -21,7 +21,7 @@ function wordBreak(s: string, wordDict: string[]): boolean {
     const nextString = s.slice(cuttingPoint[i] + 1);
     if (nextString === "") return true;
 
-    result = result || wordBreak1(nextString, wordDict);
+    result = result || wordBreak(nextString, wordDict);
   }
 
   return result;
