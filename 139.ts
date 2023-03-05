@@ -28,7 +28,7 @@ function wordBreak1(s: string, wordDict: string[]): boolean {
 }
 
 // Dynamic Programming
-//
+// time complexity: O(n^2 * w) || space complexity: O(n)
 function wordBreak2(s: string, wordDict: string[]): boolean {
   const wordSet = new Set(wordDict);
 
