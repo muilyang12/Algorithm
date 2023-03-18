@@ -51,7 +51,40 @@ var numDecodings2 = function (s) {
       return dfs(start + 1) + dfs(start + 2);
     }
 
+    // 한 개의 문자만 남았을 때.
     return dfs(start + 1);
+  };
+
+  return dfs(0);
+};
+
+// Dynamic Programming
+var numDecodings3 = function (s) {
+  // 해당 위치에서부터 시작했을 때 몇 가지로 디코드 될 수 있는지를 저장하는 배열.
+  const memo = [];
+  memo[s.length] = 1;
+
+  const dfs = (start) => {
+    if (!!memo[start]) {
+      return memo[start];
+    }
+
+    // return을 사용하지 않으니까 셋 중의 하나의 경우만 해당되도록 else if, else로 묶어야 함.
+    if (s[start] === "0") {
+      // 부분 문자열의 첫 시작이 '0' 일 때는 그 위치에서 시작할 경우 경우의 수가 0.
+      memo[start] = 0;
+    } else if (
+      start + 1 <= s.length - 1 &&
+      Number(s.slice(start, start + 2)) <= 26
+    ) {
+      // 두 개 이상의 문자가 남았고 둘 다 26보다 작거나 같을 때.
+      memo[start] = dfs(start + 1) + dfs(start + 2);
+    } else {
+      // 한 개의 문자만 남았을 때.
+      memo[start] = dfs(start + 1);
+    }
+
+    return memo[start];
   };
 
   return dfs(0);
