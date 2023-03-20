@@ -58,7 +58,8 @@ var numDecodings2 = function (s) {
   return dfs(0);
 };
 
-// Dynamic Programming
+// Depth First Search (DFS) + Memoization
+// time complexity: O(n) || space complexity: O(n) -> Length of call stack
 var numDecodings3 = function (s) {
   // 해당 위치에서부터 시작했을 때 몇 가지로 디코드 될 수 있는지를 저장하는 배열.
   const memo = [];
@@ -88,4 +89,25 @@ var numDecodings3 = function (s) {
   };
 
   return dfs(0);
+};
+
+// Dynamic Programming
+// time complexity: O(n) || space complexity: O(n)
+var numDecodings4 = function (s) {
+  const length = s.length;
+
+  const memo = [];
+  memo[length] = 1;
+
+  for (let i = length - 1; i >= 0; i--) {
+    if (s[i] === "0") {
+      memo[i] = 0;
+    } else if (i + 1 <= length - 1 && Number(s.slice(i, i + 2)) < 27) {
+      memo[i] = memo[i + 1] + memo[i + 2];
+    } else {
+      memo[i] = memo[i + 1];
+    }
+  }
+
+  return memo[0];
 };
