@@ -9,15 +9,15 @@
 
 // Divide-and-conquer (Depth First Search (DFS))
 // time complexity: O(n^m) || space complexity: O(m) (n: number of coins, m: amount)
-var coinChange = function (coins, amount) {
-  const dfs = (amountRest) => {
+var coinChange1 = function (coins, amount) {
+  const dfs = (amountReft) => {
     let result = Infinity;
 
-    if (amountRest === 0) return 0;
-    if (amountRest < 0) return -1;
+    if (amountReft === 0) return 0;
+    if (amountReft < 0) return -1;
 
     for (let i = 0; i < coins.length; i++) {
-      let tempResult = dfs(amountRest - coins[i]);
+      let tempResult = dfs(amountReft - coins[i]);
       if (tempResult === -1) continue;
 
       result = Math.min(result, tempResult + 1);
@@ -29,4 +29,13 @@ var coinChange = function (coins, amount) {
   const result = dfs(amount);
 
   return result < Infinity ? result : -1;
+};
+
+// Breadth First Search (BFS) // Queue
+var coinChange2 = function (coins, amount) {
+  const queue = [];
+
+  while (queue.length > 0) {
+    const [count, total] = queue.shift();
+  }
 };
