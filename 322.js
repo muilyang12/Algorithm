@@ -34,8 +34,20 @@ var coinChange1 = function (coins, amount) {
 // Breadth First Search (BFS) // Queue
 var coinChange2 = function (coins, amount) {
   const queue = [];
+  queue.push([0, 0]);
 
   while (queue.length > 0) {
     const [count, total] = queue.shift();
+
+    if (total === amount) return count;
+
+    for (let i = 0; i < coins.length; i++) {
+      const newTotal = total + coins[i];
+      if (newTotal > amount) continue;
+
+      queue.push([count + 1, newTotal]);
+    }
   }
+
+  return -1;
 };
