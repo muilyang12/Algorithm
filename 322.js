@@ -52,7 +52,7 @@ var coinChange2 = function (coins, amount) {
   return -1;
 };
 
-// Dynamic Programming + BFS
+// BFS + Memo
 var coinChange3 = function (coins, amount) {
   const memo = new Set();
 
@@ -78,4 +78,21 @@ var coinChange3 = function (coins, amount) {
   }
 
   return -1;
+};
+
+// Dynamic Programming
+// time complexity: O(nm) || space complexity: O(m) (n: number of coins, m: amount)
+var coinChange4 = function (coins, amount) {
+  const INF = 1000000;
+
+  const dp = [0];
+  for (let i = 1; i <= amount; i++) dp[i] = INF;
+
+  coins.forEach((coin) => {
+    for (let i = coin; i <= amount; i++) {
+      dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+    }
+  });
+
+  return dp[amount] === INF ? -1 : dp[amount];
 };
