@@ -51,3 +51,31 @@ var coinChange2 = function (coins, amount) {
 
   return -1;
 };
+
+// Dynamic Programming + BFS
+var coinChange3 = function (coins, amount) {
+  const memo = new Set();
+
+  const queue = [];
+  queue.push([0, 0]); // count, currentTotal
+
+  while (queue.length > 0) {
+    const [count, currentTotal] = queue.shift();
+
+    if (currentTotal === amount) return count;
+
+    if (memo.has(currentTotal)) continue;
+    else memo.add(currentTotal);
+
+    let newTotal;
+    coins.forEach((coin) => {
+      newTotal = currentTotal + coin;
+
+      if (newTotal <= amount) {
+        queue.push([count + 1, newTotal]);
+      }
+    });
+  }
+
+  return -1;
+};
