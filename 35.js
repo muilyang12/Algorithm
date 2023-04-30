@@ -6,6 +6,9 @@
  * @param {number} target
  * @return {number}
  */
+
+// Binary Search
+// time complexity: O(logn) || space complexity: O(1)
 var searchInsert = function (nums, target) {
   let front = 0;
   let rear = nums.length - 1;
