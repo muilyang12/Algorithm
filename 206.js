@@ -29,6 +29,7 @@ var reverseList1 = function (head) {
   return result.next;
 };
 
+// time complexity: O(n) || space complexity: O(1)
 var reverseList2 = function (head) {
   let pointer = null;
   let pointerNext = head; // It is definitely better than put if for the null head;
