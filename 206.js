@@ -1,3 +1,6 @@
+// 206. Reverse Linked List
+// https://leetcode.com/problems/reverse-linked-list/
+
 /**
  * @param {ListNode} head
  * @return {ListNode}
@@ -24,6 +27,22 @@ var reverseList1 = function (head) {
   }
 
   return result.next;
+};
+
+var reverseList2 = function (head) {
+  let pointer = null;
+  let pointerNext = head; // It is definitely better than put if for the null head;
+
+  let pointerNextAfterNext;
+  while (!!pointerNext) {
+    pointerNextAfterNext = pointerNext.next;
+    pointerNext.next = pointer;
+
+    pointer = pointerNext;
+    pointerNext = pointerNextAfterNext;
+  }
+
+  return pointer;
 };
 
 function ListNode(val, next) {
