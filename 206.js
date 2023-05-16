@@ -46,6 +46,23 @@ var reverseList2 = function (head) {
   return pointer;
 };
 
+// Recursive Function
+// time complexity: O(n) || space complexity: O(1)
+var reverseList3 = function (head) {
+  const dfs = (prev, next) => {
+    if (!next) return prev;
+
+    const nextAfterNext = next.next;
+    next.next = prev;
+
+    return dfs(next, nextAfterNext);
+  };
+
+  const first = null;
+
+  return dfs(first, head);
+};
+
 function ListNode(val, next) {
   this.val = val === undefined ? 0 : val;
   this.next = next === undefined ? null : next;
