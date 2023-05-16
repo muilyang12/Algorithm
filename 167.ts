@@ -14,7 +14,7 @@ function twoSum1(nums: number[], target: number): number[] {
   }
 
   return [];
-};
+}
 
 // Sorted -> Binary Search
 // time complexity: O(nlogn) || space complexity: O(1)
@@ -31,7 +31,7 @@ function twoSum2(numbers: number[], target: number): number[] {
       } else if (array[midPointer] < target) {
         start = midPointer + 1;
       } else {
-        return midPointer
+        return midPointer;
       }
     }
 
@@ -45,8 +45,8 @@ function twoSum2(numbers: number[], target: number): number[] {
     if (result >= 0) return [i + 1, i + 1 + result + 1];
   }
 
-  return [-1, -1]
-};
+  return [-1, -1];
+}
 
 // Two Pointer
 // time complexity: O(n) || space complexity: O(1)
@@ -64,5 +64,5 @@ function twoSum3(numbers: number[], target: number): number[] {
     }
   }
 
-  return [-1, -1]
-};
+  return [-1, -1];
+}
