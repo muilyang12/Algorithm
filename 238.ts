@@ -1,3 +1,6 @@
+// 238. Product of Array Except Self
+// https://leetcode.com/problems/product-of-array-except-self/
+
 function productExceptSelf1(nums: number[]): number[] {
   return nums.map((num, index) => {
     let result = 1;
