@@ -1,6 +1,8 @@
 // 238. Product of Array Except Self
 // https://leetcode.com/problems/product-of-array-except-self/
 
+// Brute Force
+// time complexity: O(n^2)
 function productExceptSelf1(nums: number[]): number[] {
   return nums.map((num, index) => {
     let result = 1;
@@ -15,6 +17,8 @@ function productExceptSelf1(nums: number[]): number[] {
   });
 }
 
+// Hash Table
+// time complexity: O(n^2)
 function productExceptSelf2(nums: number[]): number[] {
   const memo: number[] = [];
 
