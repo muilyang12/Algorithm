@@ -30,6 +30,30 @@ function removeNthFromEnd1(head: ListNode | null, n: number): ListNode | null {
   return head;
 }
 
+// Two Pointers
+// time complexity: O(n) || space complexity: O(2) = O(1) (n: number of nodes)
+function removeNthFromEnd2(head: ListNode | null, n: number): ListNode | null {
+  if (!head) return head;
+
+  let firstPointer = head;
+  let secondPointer = head;
+
+  for (let i = 0; i < n; i++) {
+    firstPointer = firstPointer.next;
+  }
+
+  if (!firstPointer) return head.next;
+
+  while (firstPointer.next) {
+    secondPointer = secondPointer.next;
+    firstPointer = firstPointer.next;
+  }
+
+  secondPointer.next = secondPointer.next.next;
+
+  return head;
+}
+
 class ListNode {
   val: number;
   next: ListNode | null;
