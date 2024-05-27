@@ -1,10 +1,8 @@
-# 128. Longest Consecutive Sequence
-# https://leetcode.com/problems/longest-consecutive-sequence/
+# 56. Merge Intervals
+# https://leetcode.com/problems/merge-intervals/
 
 
 from typing import List
-
-# [[1,3],[2,6],[8,10],[15,18]]
 
 
 class Solution:
