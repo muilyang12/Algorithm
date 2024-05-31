@@ -6,7 +6,7 @@ from typing import List
 
 
 class Solution:
-    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+    def merge1(self, intervals: List[List[int]]) -> List[List[int]]:
         result = sorted(intervals, key=lambda x: x[0])
 
         left = 0
@@ -30,10 +30,25 @@ class Solution:
 
         return result
 
+    def merge2(self, intervals: List[List[int]]) -> List[List[int]]:
+        sorted_intervals = sorted(intervals, key=lambda x: x[0])
+
+        result = [sorted_intervals[0]]
+
+        for start, end in sorted_intervals[1:]:
+            _, last_end = result[-1]
+
+            if start <= last_end:
+                result[-1][1] = max(last_end, end)
+            else:
+                result.append([start, end])
+
+        return result
+
 
 solution = Solution()
 
-print(solution.merge(intervals=[[1, 3], [2, 6], [8, 10], [15, 18]]))
-print(solution.merge(intervals=[[1, 4], [4, 5]]))
-print(solution.merge(intervals=[[5, 10], [1, 5]]))
-print(solution.merge(intervals=[[1, 4], [2, 3]]))
+print(solution.merge2(intervals=[[1, 3], [2, 6], [8, 10], [15, 18]]))
+print(solution.merge2(intervals=[[1, 4], [4, 5]]))
+print(solution.merge2(intervals=[[5, 10], [1, 5]]))
+print(solution.merge2(intervals=[[1, 4], [2, 3]]))
