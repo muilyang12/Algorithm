@@ -6,6 +6,7 @@ from typing import List
 
 
 class Solution:
+    # time complexity: O(2n) = O(n)
     def insert1(
         self, intervals: List[List[int]], newInterval: List[int]
     ) -> List[List[int]]:
@@ -49,6 +50,7 @@ class Solution:
 
         return result
 
+    # time complexity: O(2n) = O(n)
     def insert2(
         self, intervals: List[List[int]], newInterval: List[int]
     ) -> List[List[int]]:

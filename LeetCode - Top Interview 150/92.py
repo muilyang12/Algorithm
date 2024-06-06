@@ -12,6 +12,7 @@ class ListNode:
 
 
 class Solution:
+    # time complexity: O(2r - l) = O(n)
     def reverseBetween1(
         self, head: Optional[ListNode], left: int, right: int
     ) -> Optional[ListNode]:
@@ -39,6 +40,7 @@ class Solution:
 
         return dummy.next
 
+    # time complexity: O(2r - l) = O(n)
     def reverseBetween2(
         self, head: Optional[ListNode], left: int, right: int
     ) -> Optional[ListNode]:

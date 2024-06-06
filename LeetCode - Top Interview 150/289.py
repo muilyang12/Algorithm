@@ -27,6 +27,7 @@ class Solution:
 
         return count
 
+    # time complexity: O(m * n) = O(mn)
     def gameOfLife(self, board: List[List[int]]) -> None:
         copied_board = [row[:] for row in board]
         xMax = len(board)

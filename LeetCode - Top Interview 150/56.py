@@ -6,6 +6,9 @@ from typing import List
 
 
 class Solution:
+    # time complexity: O(nlogn + n^2) = O(n^2)
+    # Deleting an element from a list in Python is an O(n) operation
+    # because it involves shifting all subsequent elements one position to the left.
     def merge1(self, intervals: List[List[int]]) -> List[List[int]]:
         result = sorted(intervals, key=lambda x: x[0])
 
@@ -30,6 +33,7 @@ class Solution:
 
         return result
 
+    # time complexity: O(nlogn + n) = O(nlogn)
     def merge2(self, intervals: List[List[int]]) -> List[List[int]]:
         sorted_intervals = sorted(intervals, key=lambda x: x[0])
 
