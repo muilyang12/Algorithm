@@ -22,10 +22,6 @@ class Solution:
                     continue
 
                 temp_result = tuple(sorted([nums[i], nums[j], complement]))
-
-                if temp_result in result:
-                    continue
-
                 result.add(temp_result)
 
         return list(result)
