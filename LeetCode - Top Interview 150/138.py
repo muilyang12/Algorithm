@@ -27,6 +27,8 @@ class Solution:
             copied = hash[current]
             copied.next = hash.get(current.next)
             copied.random = hash.get(current.random)
+            # hash[current.next]와 달리 hash.get(current.next)를 통해 값을 가져올 경우 KeyError가
+            # 발생하지 않고, None이 리턴되게 됩니다.
 
             current = current.next
 
