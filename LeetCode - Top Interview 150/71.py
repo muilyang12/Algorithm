@@ -3,6 +3,9 @@
 
 
 class Solution:
+    # time complexity: O(3n) = O(n)
+    # Splitting a string takes O(n) ('split' method)
+    # Joining the elements of a list takes O(n)
     def simplifyPath1(self, path: str) -> str:
         result = []
 
@@ -27,6 +30,7 @@ class Solution:
 
         return "/".join(result) if len(result) > 1 else "/"
 
+    # time complexity: O(3n) = O(n)
     def simplifyPath2(self, path: str) -> str:
         result = []
 

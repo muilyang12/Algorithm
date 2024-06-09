@@ -46,7 +46,7 @@ class Solution:
 
         return list(result)
 
-    # time complexity: O(n^2)
+    # time complexity: O(nlogn + n^2) = O(n^2)
     def threeSum3(self, nums: List[int]) -> List[List[int]]:
         result = set()
 

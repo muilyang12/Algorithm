@@ -13,6 +13,7 @@ class Node:
 
 
 class Solution:
+    # time complexity: O(2n) = O(n)
     def copyRandomList(self, head: Optional[Node]) -> Optional[Node]:
         hash = {}
 
