@@ -6,6 +6,8 @@ from typing import List
 
 
 class Solution:
+    # Dynamic Programmings
+    # time complexity: O(n)
     def maxProfit(self, prices: List[int]) -> int:
         max_profits = [0]
 
