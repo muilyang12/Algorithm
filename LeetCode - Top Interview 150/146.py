@@ -8,6 +8,7 @@ class LRUCache1:
         self.inserted_sequence = []
         self.capacity = capacity
 
+    # time complexity: O(n)
     def get(self, key: int) -> int:
         if key in self.cache:
             self.inserted_sequence.remove(key)
@@ -17,6 +18,7 @@ class LRUCache1:
 
         return -1
 
+    # time complexity: O(n)
     def put(self, key: int, value: int) -> None:
         if key in self.cache:
             self.inserted_sequence.remove(key)
@@ -47,6 +49,7 @@ class LRUCache2:
 
         self.cache = {}
 
+    # time complexity: O(1)
     def get(self, key: int) -> int:
         if not key in self.cache:
             return -1
@@ -60,6 +63,7 @@ class LRUCache2:
 
         return target_value
 
+    # time complexity: O(1)
     def put(self, key: int, value: int) -> None:
         if key in self.cache:
             self.remove_node(key)
