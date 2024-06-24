@@ -2,7 +2,6 @@
 # https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
 
-import math
 from typing import Optional
 
 
@@ -14,7 +13,8 @@ class TreeNode:
 
 
 class Solution:
-    def maxDepth(self, root: Optional[TreeNode]) -> int:
+    # BFS - Breadth First Search
+    def maxDepth1(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
 
@@ -33,3 +33,15 @@ class Solution:
                 queue.append((depth + 1, current.right))
 
         return max_depth
+
+    # DFS - Depth First Search
+    def maxDepth2(self, root: Optional[TreeNode]) -> int:
+        def dfs(node, current_depth):
+            if not node:
+                return current_depth - 1
+
+            return max(
+                dfs(node.left, current_depth + 1), dfs(node.right, current_depth + 1)
+            )
+
+        return dfs(root, 1)
