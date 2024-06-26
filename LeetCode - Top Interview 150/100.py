@@ -13,7 +13,7 @@ class TreeNode:
 
 
 class Solution:
-    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+    def isSameTree1(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         queue = []
 
         if p and not q:
@@ -41,5 +41,23 @@ class Solution:
                 return False
             elif node_p.right and node_q.right:
                 queue.append((node_p.right, node_q.right))
+
+        return True
+
+    def isSameTree2(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        queue = []
+        queue.append((p, q))
+
+        while queue:
+            node_p, node_q = queue.pop(0)
+            if not node_p and not node_q:
+                continue
+            elif (node_p and not node_q) or (not node_p and node_q):
+                return False
+            elif node_p.val != node_q.val:
+                return False
+
+            queue.append((node_p.left, node_q.left))
+            queue.append((node_p.right, node_q.right))
 
         return True
