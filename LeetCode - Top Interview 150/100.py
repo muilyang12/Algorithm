@@ -13,6 +13,7 @@ class TreeNode:
 
 
 class Solution:
+    # BFS - Breadth First Search
     def isSameTree1(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         queue = []
 
@@ -44,6 +45,7 @@ class Solution:
 
         return True
 
+    # BFS - Breadth First Search
     def isSameTree2(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         queue = []
         queue.append((p, q))
@@ -61,3 +63,16 @@ class Solution:
             queue.append((node_p.right, node_q.right))
 
         return True
+
+    # DFS - Depth First Search
+    def isSameTree3(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if not p and not q:
+            return True
+
+        if (not p and q) or (p and not q):
+            return False
+
+        if p.val != q.val:
+            return False
+
+        return self.isSameTree3(p.left, q.left) and self.isSameTree3(p.right, q.right)
