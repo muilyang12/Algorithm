@@ -13,7 +13,8 @@ class TreeNode:
 
 
 class Solution:
-    def flatten(self, root: Optional[TreeNode]) -> None:
+    # time complexity: O(2n) = O(n)
+    def flatten1(self, root: Optional[TreeNode]) -> None:
         if not root:
             return
 
@@ -37,3 +38,25 @@ class Solution:
                 node.right = nodes[index + 1]
             else:
                 node.right = None
+
+    # time complexity: O(n)
+    def flatten2(self, root: Optional[TreeNode]) -> None:
+        if not root:
+            return
+
+        stack = []
+        stack.append(root)
+
+        while stack:
+            node = stack.pop()
+
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+
+            if len(stack) > 0:
+                node.right = stack[-1]
+
+            node.left = None
+
