@@ -76,3 +76,26 @@ class Solution:
             return False
 
         return self.isSameTree3(p.left, q.left) and self.isSameTree3(p.right, q.right)
+
+    # DFS - Depth First Search (with Stack)
+    def isSameTree4(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if not p and not q:
+            return True
+
+        stack = []
+        stack.append((p, q))
+
+        while stack:
+            node_p, node_q = stack.pop()
+
+            if not node_p and not node_q:
+                continue
+            elif (node_p and not node_q) or (not node_p and node_q):
+                return False
+            elif node_p.val != node_q.val:
+                return False
+
+            stack.append((node_p.right, node_q.right))
+            stack.append((node_p.left, node_q.left))
+
+        return True
