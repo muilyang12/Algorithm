@@ -60,3 +60,21 @@ class Solution:
 
             node.left = None
 
+    # time complexity: O(n)
+    # 방식은 멋진데 생각하기가 진짜 힘들 것 같은데...
+    def flatten3(self, root: Optional[TreeNode]) -> None:
+        def dfs(node):
+            if not node:
+                return
+
+            tail_from_left = dfs(node.left)
+            tail_from_right = dfs(node.right)
+
+            if tail_from_left:
+                tail_from_left.right = node.right
+                node.right = node.left
+                node.left = None
+
+            return tail_from_right or tail_from_left or node
+
+        dfs(root)
