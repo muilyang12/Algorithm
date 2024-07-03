@@ -13,7 +13,7 @@ class TreeNode:
 
 
 class Solution:
-    def sumNumbers(self, root: Optional[TreeNode]) -> int:
+    def sumNumbers1(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
 
@@ -31,5 +31,29 @@ class Solution:
                 queue.append((node.right, current_num + str(node.right.val)))
             if not node.left and not node.right:
                 result += int(current_num)
+
+        return result
+
+    def sumNumbers2(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+
+        result = 0
+
+        def traverse(node: Optional[TreeNode], prev_num: str):
+            nonlocal result
+
+            if not node:
+                return
+
+            current_num = prev_num + str(node.val)
+
+            traverse(node.left, current_num)
+            traverse(node.right, current_num)
+
+            if not node.left and not node.right:
+                result += int(current_num)
+
+        traverse(root, "")
 
         return result
