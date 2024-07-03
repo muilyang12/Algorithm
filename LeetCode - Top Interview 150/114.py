@@ -78,3 +78,20 @@ class Solution:
             return tail_from_right or tail_from_left or node
 
         dfs(root)
+
+    prev = None
+
+    # 오른쪽 Children 트리의 끝부터 순회하면서 마지막의 것을 self.prev로 참조하여
+    # 반복적으로 연결. 재귀 호출 이전에 행동을 수행하느냐 재귀 호출 이후에 행동을
+    # 수행하느냐의 관점으로 보면 아주 좋은 듯.
+    def flatten4(self, root: Optional[TreeNode]) -> None:
+        if not root:
+            return
+
+        self.flatten4(root.right)
+        self.flatten4(root.left)
+
+        root.right = self.prev
+        root.left = None
+
+        self.prev = root
