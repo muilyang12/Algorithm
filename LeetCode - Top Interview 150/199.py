@@ -27,7 +27,6 @@ class Solution:
 
             if len(result) < depth:
                 result.append(node.val)
-                print(result)
 
             if node.right:
                 queue.append((node.right, depth + 1))
