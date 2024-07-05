@@ -10,7 +10,8 @@ class TreeNode:
 
 
 class Solution:
-    def lowestCommonAncestor(
+    # time complexity: O(n + h) = O(n)
+    def lowestCommonAncestor1(
         self, root: TreeNode, p: TreeNode, q: TreeNode
     ) -> TreeNode:
         route_to_p = None
@@ -50,3 +51,26 @@ class Solution:
             current += 1
 
         return route_to_p[current - 1]
+
+    def lowestCommonAncestor2(
+        self, root: TreeNode, p: TreeNode, q: TreeNode
+    ) -> TreeNode:
+        if not root:
+            return None
+
+        if root == p or root == q:
+            return root
+
+        node_from_left = self.lowestCommonAncestor2(root.left, p, q)
+        node_from_right = self.lowestCommonAncestor2(root.right, p, q)
+
+        if node_from_left and node_from_right:
+            return root
+
+        elif node_from_right:
+            return node_from_right
+
+        elif node_from_left:
+            return node_from_left
+
+        return None
