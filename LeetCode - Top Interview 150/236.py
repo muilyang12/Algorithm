@@ -55,6 +55,43 @@ class Solution:
     def lowestCommonAncestor2(
         self, root: TreeNode, p: TreeNode, q: TreeNode
     ) -> TreeNode:
+        def findPath(node, target, path):
+            if not node:
+                return False
+
+            path.append(node)
+
+            if node == target:
+                return True
+
+            does_exist_left = findPath(node.left, target, path)
+            does_exist_right = findPath(node.right, target, path)
+
+            if does_exist_left or does_exist_right:
+                return True
+
+            path.pop()
+
+            return False
+
+        route_to_p = []
+        route_to_q = []
+
+        findPath(root, p, route_to_p)
+        findPath(root, q, route_to_q)
+
+        current = 0
+        while (
+            current < min(len(route_to_p), len(route_to_q))
+            and route_to_p[current] == route_to_q[current]
+        ):
+            current += 1
+
+        return route_to_p[current - 1]
+
+    def lowestCommonAncestor3(
+        self, root: TreeNode, p: TreeNode, q: TreeNode
+    ) -> TreeNode:
         if not root:
             return None
 
