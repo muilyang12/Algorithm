@@ -13,7 +13,7 @@ class TreeNode:
 
 
 class Solution:
-    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+    def isValidBST1(self, root: Optional[TreeNode]) -> bool:
         values = []
 
         def inorder(node):
@@ -38,3 +38,27 @@ class Solution:
         result = inorder(root)
 
         return result
+
+    def isValidBST2(self, root: Optional[TreeNode]) -> bool:
+        prev_value = float("-inf")
+
+        def inorder(node):
+            nonlocal prev_value
+
+            if not node:
+                return True
+
+            if not inorder(node.left):
+                return False
+
+            if prev_value >= node.val:
+                return False
+
+            prev_value = node.val
+
+            if not inorder(node.right):
+                return False
+
+            return True
+
+        return inorder(root)
