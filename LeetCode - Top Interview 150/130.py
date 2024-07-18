@@ -6,7 +6,8 @@ from typing import List
 
 
 class Solution:
-    def solve(self, board: List[List[str]]) -> None:
+    # DFS
+    def solve1(self, board: List[List[str]]) -> None:
         if not board:
             return
 
@@ -43,6 +44,49 @@ class Solution:
                 dfs(board, 0, j)
             if board[-1][j] == "O":
                 dfs(board, num_row - 1, j)
+
+        for i in range(num_row):
+            for j in range(num_col):
+                if board[i][j] == "M":
+                    board[i][j] = "O"
+                elif board[i][j] == "O":
+                    board[i][j] = "X"
+
+    # BFS
+    def solve2(self, board: List[List[str]]) -> None:
+        if not board:
+            return
+
+        num_row = len(board)
+        num_col = len(board[0])
+
+        queue = []
+
+        for r in range(num_row):
+            if board[r][0] == "O":
+                queue.append((r, 0))
+            if board[r][-1] == "O":
+                queue.append((r, num_col - 1))
+
+        for c in range(num_col):
+            if board[0][c] == "O":
+                queue.append((0, c))
+            if board[-1][c] == "O":
+                queue.append((num_row - 1, c))
+
+        while queue:
+            r, c = queue.pop(0)
+
+            board[r][c] = "M"
+
+            if r - 1 > 0 and board[r - 1][c] == "O":
+                queue.append((r - 1, c))
+            if r + 1 < num_row and board[r + 1][c] == "O":
+                queue.append((r + 1, c))
+            if c - 1 > 0 and board[r][c - 1] == "O":
+                queue.append((r, c - 1))
+            if c + 1 < num_col and board[r][c + 1] == "O":
+                queue.append((r, c + 1))
 
         for i in range(num_row):
             for j in range(num_col):
