@@ -30,8 +30,6 @@ class Solution:
                 first_coeff, first_alpha = value_data[first]
                 second_coeff, second_alpha = value_data[second]
 
-                # fa = values[index] * sc * 1 / fc * sa
-
                 if first_alpha == second_alpha:
                     continue
 
@@ -45,8 +43,6 @@ class Solution:
                         value_coeff * values[index] * second_coeff * (1 / first_coeff),
                         second_alpha,
                     )
-
-                print(value_data[first], value_data[second])
 
         result = []
 
