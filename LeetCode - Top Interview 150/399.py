@@ -91,3 +91,40 @@ class Solution:
 
         return result
 
+    def calcEquation3(
+        self, equations: List[List[str]], values: List[float], queries: List[List[str]]
+    ) -> List[float]:
+        graph = defaultdict(dict)
+        for (x, y), val in zip(equations, values):
+            graph[x][y] = val
+            graph[y][x] = 1.0 / val
+
+        def get_distance(start, destination, visited: list[str]):
+            if not start in graph or not destination in graph:
+                return -1
+
+            if destination in graph[start]:
+                return graph[start][destination]
+
+            for mid in graph[start]:
+                if mid in visited:
+                    continue
+
+                visited.append(start)
+                mid_to_dest = get_distance(mid, destination, visited)
+
+                if mid_to_dest == -1:
+                    continue
+
+                return graph[start][mid] * mid_to_dest
+
+            return -1
+
+        result = []
+
+        for query in queries:
+            start, destination = query
+
+            result.append(get_distance(start, destination, []))
+
+        return result
