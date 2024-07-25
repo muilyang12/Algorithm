@@ -3,10 +3,11 @@
 
 
 from typing import List
+from collections import defaultdict
 
 
 class Solution:
-    def calcEquation(
+    def calcEquation1(
         self, equations: List[List[str]], values: List[float], queries: List[List[str]]
     ) -> List[float]:
         value_data = {}
@@ -61,3 +62,32 @@ class Solution:
                     result.append(-1)
 
         return result
+
+    def calcEquation2(
+        self, equations: List[List[str]], values: List[float], queries: List[List[str]]
+    ) -> List[float]:
+        graph = defaultdict(dict)
+        for (x, y), val in zip(equations, values):
+            graph[x][y] = val
+            graph[y][x] = 1 / val
+
+        for i in graph:
+            for j in graph[i]:
+                for k in graph[i]:
+                    if j == k:
+                        continue
+
+                    graph[j][k] = graph[j][i] * graph[i][k]
+
+        result = []
+
+        for query in queries:
+            start, destination = query
+
+            if not start in graph or not destination in graph[start]:
+                result.append(-1)
+            else:
+                result.append(graph[start][destination])
+
+        return result
+
