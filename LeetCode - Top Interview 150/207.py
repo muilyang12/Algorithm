@@ -15,8 +15,6 @@ class Solution:
             graph[course][pre] = 1
 
         def is_there_a_cycle(graph, current, route: List[int]):
-            print("is_there_a_cycle", current, route)
-
             x, y = current
 
             graph[x][y] = 2
