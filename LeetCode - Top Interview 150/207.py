@@ -6,7 +6,7 @@ from typing import List
 
 
 class Solution:
-    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+    def canFinish1(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         graph = [[0 for _ in range(numCourses)] for _ in range(numCourses)]
 
         for class_relation in prerequisites:
@@ -43,5 +43,39 @@ class Solution:
 
                 if is_there_a_cycle(graph, (i, j), [i]):
                     return False
+
+        return True
+
+    def canFinish2(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        pre_map = [[] for _ in range(numCourses)]
+
+        for class_relation in prerequisites:
+            course, pre = class_relation
+
+            pre_map[pre].append(course)
+
+        possible_list = set()
+
+        def has_roop(current, route: List[int]):
+            if current in route:
+                return True
+
+            new_route = route[:]
+            new_route.append(current)
+
+            for next in pre_map[current]:
+                if next in possible_list:
+                    continue
+
+                if has_roop(next, new_route):
+                    return True
+
+            possible_list.add(current)
+
+            return False
+
+        for i in range(numCourses):
+            if has_roop(i, []):
+                return False
 
         return True
