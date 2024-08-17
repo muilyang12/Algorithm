@@ -56,3 +56,32 @@ print(solution.merge2(intervals=[[1, 3], [2, 6], [8, 10], [15, 18]]))
 print(solution.merge2(intervals=[[1, 4], [4, 5]]))
 print(solution.merge2(intervals=[[5, 10], [1, 5]]))
 print(solution.merge2(intervals=[[1, 4], [2, 3]]))
+
+"""
+- Definition
+Lambda Expression is a way to create small, anonymous functions.
+
+- Example of a Lambda Expression
+add = lambda x, y: x + y
+result = add(2, 3) -> 5
+
+- Example of Using Lambda Expressions with Higher-Order Functions
+Lambda expressions are particularly useful when combined with higher-order functions, which are functions that take other functions as arguments.
+
+1. 
+numbers = [1, 2, 3, 4, 5]
+sum_of_numbers = reduce(lambda x, y: x + y, numbers) -> 15
+
+2.
+numbers = [1, 2, 3, 4, 5]
+odd_numbers = filter(lambda x: x % 2 == 1, numbers) -> [1, 3, 5]
+
+3.
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = list(map(lambda x: x**2, numbers)) -> [1, 4, 9, 16, 25]
+
+4.
+names = ["Yoonseok", "Junho", "Kim", "Muil"]
+sorted_names = sorted(names, key=lambda x: len(x))
+  -> ["Kim", "Muil", "Junho", "Yoonseok"]
+"""
