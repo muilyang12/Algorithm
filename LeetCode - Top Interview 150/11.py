@@ -14,8 +14,26 @@ class Solution:
 
         return current_volume
 
-    # Idea was nice. But the answer is wrong. :(
     def maxArea1(self, height: List[int]) -> int:
+        result = 0
+
+        left = 0
+        right = len(height) - 1
+
+        while left < right:
+            current_volume = self.calculate_volume(height, left, right)
+
+            result = max(result, current_volume)
+
+            if height[left] < height[right]:
+                left += 1
+            else:
+                right -= 1
+
+        return result
+
+    # Idea was nice. But the answer is wrong. :(
+    def maxArea2(self, height: List[int]) -> int:
         result = 0
 
         left = 0
