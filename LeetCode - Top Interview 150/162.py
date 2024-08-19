@@ -6,7 +6,7 @@ from typing import List
 
 
 class Solution:
-    def findPeakElement(self, nums: List[int]) -> int:
+    def findPeakElement1(self, nums: List[int]) -> int:
         left = 0
         right = len(nums) - 1
 
@@ -21,3 +21,21 @@ class Solution:
                 return mid
 
         return 0
+
+    def findPeakElement2(self, nums: List[int]) -> int:
+        def find_peak(left, right):
+            if right - left == 1:
+                return left
+
+            mid = (left + right) // 2
+
+            left_peak_index = find_peak(left, mid)
+            right_peak_index = find_peak(mid, right)
+
+            return (
+                left_peak_index
+                if nums[left_peak_index] >= nums[right_peak_index]
+                else right_peak_index
+            )
+
+        return find_peak(0, len(nums))
