@@ -11,6 +11,7 @@ class Solution:
         right = len(nums) - 1
         found_mid = -1
 
+        # First binary search
         while left <= right:
             mid = (left + right) // 2
 
@@ -28,6 +29,7 @@ class Solution:
 
         result = [-1, -1]
 
+        # Second binary search to locate left boundary.
         left = 0
         right = found_mid - 1
 
@@ -41,6 +43,7 @@ class Solution:
 
                 result[0] = mid
 
+        # Third binary search to locate right boundary.
         left = found_mid + 1
         right = len(nums) - 1
 
@@ -54,6 +57,7 @@ class Solution:
 
                 result[1] = mid
 
+        # Adjust the result.
         if found_mid != -1:
             result[0] = found_mid if result[0] == -1 else result[0]
             result[1] = found_mid if result[1] == -1 else result[1]
