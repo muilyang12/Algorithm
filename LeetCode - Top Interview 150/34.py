@@ -6,7 +6,7 @@ from typing import List
 
 
 class Solution:
-    def searchRange(self, nums: List[int], target: int) -> List[int]:
+    def searchRange1(self, nums: List[int], target: int) -> List[int]:
         left = 0
         right = len(nums) - 1
         found_mid = -1
@@ -63,3 +63,22 @@ class Solution:
             result[1] = found_mid if result[1] == -1 else result[1]
 
         return result
+
+    def searchRange2(self, nums: List[int], target: int) -> List[int]:
+        def binary_search_left(current_target):
+            left, right = 0, len(nums) - 1
+
+            while left <= right:
+                mid = (left + right) // 2
+
+                if nums[mid] < current_target:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+
+            return left
+
+        first = binary_search_left(target)
+        second = binary_search_left(target + 1) - 1
+
+        return [first, second] if first <= second else [-1, -1]
