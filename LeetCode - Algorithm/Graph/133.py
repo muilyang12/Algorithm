@@ -40,3 +40,17 @@ class Solution:
     node 2. Then, while building node 2, I needed node 1. The solution is to add the node to the hash before 
     cloning its neighbors, which prevents the recursion issue.
     """
+
+
+"""
+The "typing" module includes
+
+- List[T]
+- Tuple[T1, T2, ...]
+- Set[T]
+- Dict[KT, VT]: Keys are of type KT and values are of type VT.
+- Optional[T]: Represents a value that could either be of type T or None.
+- Union[T1, T2, ...]: Represents a value that could be one of several types.
+- Callable[[T1, T2, ...], R]: Represents a callable (like a function) that takes arguments of types T1, T2, ... and returns a value of type R.
+- Literal[A, B, C]: Represents that the value must be exactly one of a specific set of values. Ex. Literal["Asian", 'White', 'Black']
+"""
