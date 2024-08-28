@@ -31,4 +31,3 @@ class Solution:
             return new_node
 
         return clone(node)
-
