@@ -11,3 +11,24 @@ class Solution:
 
         return len(splitted[-1])
 
+
+"""
+The 're' module in Python
+
+1. re.match
+re.match(r'fly', 'fly me to the moon or fly me to the mars.')
+
+2. re.search
+re.search(r'fly', 'fly me to the moon or fly me to the mars.')
+
+3. re.findall
+- Finds all occurrences of a pattern in the string
+re.findall(r'fly', 'fly me to the moon or fly me to the mars.')
+
+3. re.sub
+re.match(r'/s+', ' ', 'fly   me to     the   moon.')
+
+4. re.split
+re.split(r'/s+', ' ', 'fly   me to     the   moon.')
+
+"""
