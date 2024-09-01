@@ -34,6 +34,4 @@ Examples of Invalid Keys:
    data = [1, 2, 3]
 
    hash[data].append("123")
-
-
 """
