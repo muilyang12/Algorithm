@@ -9,6 +9,27 @@ class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         hash = defaultdict(list)
 
+        for string in strs:
+            letterCount = self.countLetters(string)
+
+            hash[letterCount].append(string)
+
+        result = []
+
+        for key in hash:
+            result.append(hash[key])
+
+        return result
+
+    def countLetters(self, string: int):
+        counts = [0 for _ in range(26)]
+
+        for letter in string:
+            index = ord(letter) - ord("a")
+            counts[index] += 1
+
+        return tuple(counts)
+
 
 """
 ===== Knowledge =====
