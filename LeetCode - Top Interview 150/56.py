@@ -58,6 +58,8 @@ print(solution.merge2(intervals=[[5, 10], [1, 5]]))
 print(solution.merge2(intervals=[[1, 4], [2, 3]]))
 
 """
+===== Knowledge =====
+
 - Definition
 Lambda Expression is a way to create small, anonymous functions.
 
