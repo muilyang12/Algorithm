@@ -11,14 +11,14 @@ class Solution:
             return (
                 nums2[len(nums2) // 2]
                 if len(nums2) % 2 == 1
-                else (nums2[len(nums2) / 2] + nums2[len(nums2) / 2 - 1]) / 2
+                else (nums2[len(nums2) // 2] + nums2[len(nums2) // 2 - 1]) / 2
             )
 
         if len(nums2) == 0:
             return (
                 nums1[len(nums1) // 2]
                 if len(nums1) % 2 == 1
-                else (nums1[len(nums1) / 2] + nums1[len(nums1) / 2 - 1]) / 2
+                else (nums1[len(nums1) // 2] + nums1[len(nums1) // 2 - 1]) / 2
             )
 
         sumOfMids = (len(nums1) + len(nums2)) // 2 - 1
