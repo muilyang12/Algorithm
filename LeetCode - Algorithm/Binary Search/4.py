@@ -44,25 +44,3 @@ class Solution:
             if (len(nums1) + len(nums2)) % 2 == 0
             else max(nums1[mid1], nums2[mid2])
         )
-
-
-"""
-nums1 = [-1,0,1,3,5,7], nums2 = [2,4]
-                ^                ^
-nums1 = [-1,1,3,5,7], nums2 = [0,2,4]
-              ^                  ^
-nums1 = [1,3,5,7], nums2 = [-1,0,2,4]
-           ^                     ^
-nums1 = [1,3,5,7], nums2 = [0,2,4]
-           ^                  ^
-nums1 = [1,3], nums2 = [2]
-         ^              ^
-nums1 = [3], nums2 = [-2,-1]
-         ^            ^
-
--1,0,1,2,3,4,5,7 -> median = 2.5
-0,1,2,3,4,5,7 -> median = 3
-1,2,3 -> median = 2
--2,-1,3 -> median = -1
-
-"""
