@@ -60,3 +60,10 @@ class Solution:
                 return False
 
         return True
+
+
+"""
+The reason why my code exceeded the time limit is due to the inefficiency in the isAllAlphabetsIncluded
+function. The function checks the entire substring every time, even though only one letter was added or 
+removed from the window. I should improve the code by avoiding the repeated full scan of the substring.
+"""
