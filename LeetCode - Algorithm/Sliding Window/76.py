@@ -126,4 +126,8 @@ class Solution:
 The reason why my code exceeded the time limit is due to the inefficiency in the isAllAlphabetsIncluded
 function. The function checks the entire substring every time, even though only one letter was added or 
 removed from the window. I should improve the code by avoiding the repeated full scan of the substring.
+
+I've noticed a recurring pattern in my approach to sliding window problems. I tend to recheck or recompute
+values for the entire window, even when the window is only being adjusted by one element at a time. I could
+instead adjust the result incrementally by adding or removing just the affected element.
 """
