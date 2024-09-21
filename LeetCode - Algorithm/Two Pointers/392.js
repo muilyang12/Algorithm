@@ -2,30 +2,22 @@
 // https://leetcode.com/problems/is-subsequence/
 
 /**
- * @param {number[]} nums
- * @return {void} Do not return anything, modify nums in-place instead.
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
  */
-var moveZeroes = function (nums) {
-  left = 0;
-  right = 0;
+var isSubsequence = function (s, t) {
+  i = 0;
+  j = 0;
 
-  while (left <= right && right < nums.length) {
-    console.log(left, right, nums);
-
-    if (nums[left] === 0 && nums[right] !== 0) {
-      temp = nums[left];
-      nums[left] = nums[right];
-      nums[right] = temp;
-
-      left += 1;
-      right += 1;
-    } else if (nums[left] === 0 && nums[right] === 0) {
-      right += 1;
-    } else if (nums[left] !== 0 && nums[right] !== 0) {
-      left += 1;
-    } else {
-      left += 1;
-      right += 1;
+  while (i < s.length && j < t.length) {
+    if (s[i] == t[j]) {
+      i += 1;
     }
+
+    j += 1;
   }
+
+  if (i >= s.length) return true;
+  else return false;
 };
