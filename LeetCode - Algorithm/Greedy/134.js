@@ -9,7 +9,7 @@
 
 // Time Limit Exceeded. :(
 // time complexity: O(n^2)
-var canCompleteCircuit = function (gas, cost) {
+var canCompleteCircuit1 = function (gas, cost) {
   let possibleStartPoint = -1;
 
   for (i = 0; i < gas.length; i++) {
@@ -33,3 +33,27 @@ var canCompleteCircuit = function (gas, cost) {
 
   return possibleStartPoint;
 };
+
+// time complexity: O(n)
+var canCompleteCircuit2 = function (gas, cost) {
+  let possibleStartPoint = -1;
+  let totalGasLeft = 0;
+  let currentGasLeft = 0;
+
+  for (i = 0; i < gas.length; i++) {
+    if (currentGasLeft === 0) possibleStartPoint = i;
+
+    totalGasLeft += gas[i] - cost[i];
+    currentGasLeft += gas[i] - cost[i];
+
+    if (currentGasLeft < 0) currentGasLeft = 0;
+  }
+
+  if (totalGasLeft < 0) return -1;
+  else return possibleStartPoint;
+};
+
+`
+If we run out of fuel at some ith gas station, all gas stations between 0th point and ith point 
+are bad starting point.
+`;
