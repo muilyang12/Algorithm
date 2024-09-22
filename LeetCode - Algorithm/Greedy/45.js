@@ -5,7 +5,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var jump = function (nums) {
+var jump1 = function (nums) {
   let current = 0;
   let result = 0;
 
@@ -32,7 +32,28 @@ var jump = function (nums) {
   return result;
 };
 
+var jump2 = function (nums) {
+  if (nums.length === 1) return 0;
+
+  result = 0;
+
+  farthestFromCurrentRegion = 0;
+  endOfRegion = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    farthestFromCurrentRegion = Math.max(farthestFromCurrentRegion, i + nums[i]);
+
+    if (i === endOfRegion) {
+      endOfRegion = farthestFromCurrentRegion;
+
+      result += 1;
+
+      if (endOfRegion >= nums.length - 1) return result;
+    }
+  }
+};
+
 `
 nums = [2,3,1,1,4]
-        ^
+                ^
 `;
