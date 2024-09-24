@@ -21,3 +21,10 @@ var coinChange = function (coins, amount) {
   if (!Number.isFinite(memo[memo.length - 1])) return -1;
   else return memo[memo.length - 1];
 };
+
+`
+The '322. Coin Change' problem is very similar to the '139. Word Break' problem. In both problems, 
+we need to create a memoization array and fill each element step by step. Inside the for loop that
+fills the memoization array, we iterate through either the coins array in the Coin Change problem
+or the wordDict in the Word Break problem.
+`;
