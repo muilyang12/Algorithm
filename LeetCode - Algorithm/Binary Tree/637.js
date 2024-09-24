@@ -11,7 +11,7 @@ function TreeNode(val, left, right) {
  * @param {TreeNode} root
  * @return {number[]}
  */
-var averageOfLevels = function (root) {
+var averageOfLevels1 = function (root) {
   if (root.length === 0) return [];
 
   const result = [];
@@ -41,3 +41,41 @@ var averageOfLevels = function (root) {
 
   return result;
 };
+
+var averageOfLevels2 = function (root) {
+  if (root.length === 0) return [];
+
+  const result = [];
+
+  const queue = [];
+  queue.push(root);
+
+  while (queue.length > 0) {
+    let sum = 0;
+    let count = 0;
+
+    const nodesCount = queue.length;
+
+    for (let i = 0; i < nodesCount; i++) {
+      const node = queue.shift();
+
+      sum += node.val;
+      count += 1;
+
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+
+    result.push(sum / count);
+  }
+
+  return result;
+};
+
+`
+Last time, my teammate showed me that I don't need to store the depth information along with the node data if I use 
+a for loop inside the while loop. By using only a while loop, I would have had to track the depth manually by 
+including it with the node data. However, by including a for loop inside the while loop, I can assume that each 
+iteration of the while loop corresponds to moving to the next depth level, and each iteration of the for loop processes
+nodes at the same depth.
+`;
