@@ -33,3 +33,9 @@ var longestCommonSubsequence = function (text1, text2) {
 
 // ext1 = "abcde", text2 = "ace"
 // [0,0,0,0,0], [0,0,0]
+
+`
+In the code, I used T[i][j] to represent the length of the Longest Common Subsequence (LCS) between 
+the first i letters of text1 and the first j letters of text2. By tracking "the result up to this point" 
+using T[i][j], the next result can be determined based on the previous result and the newly added letter.
+`;
