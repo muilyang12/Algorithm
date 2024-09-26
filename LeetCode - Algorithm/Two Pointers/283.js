@@ -5,6 +5,8 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
+// time complexity: O(n)
+// space complexity: O(1)
 var moveZeroes = function (nums) {
   left = 0;
   right = 1;

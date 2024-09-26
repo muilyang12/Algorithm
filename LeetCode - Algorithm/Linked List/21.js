@@ -11,6 +11,8 @@ function ListNode(val, next) {
  * @param {ListNode} list2
  * @return {ListNode}
  */
+// time complexity: O(n + m)
+// space complexity: O(n + m)
 var mergeTwoLists = function (list1, list2) {
   let first = list1;
   let second = list2;

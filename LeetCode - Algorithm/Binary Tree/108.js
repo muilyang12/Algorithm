@@ -11,6 +11,8 @@ function TreeNode(val, left, right) {
  * @param {number[]} nums
  * @return {TreeNode}
  */
+// time complexity: O(n log n)
+// space complexity: O(n)
 var sortedArrayToBST = function (nums) {
   if (nums.length === 0) return null;
 
@@ -22,3 +24,11 @@ var sortedArrayToBST = function (nums) {
 
   return newNode;
 };
+
+`
+I initially thought the time complexity would be O(n) since each node is visited once, which suggests 
+linear time. However, I overlooked the time required to divide the array at each step.
+
+Each split at a certain depth takes O(n) time, and the number of depth is log n. So, the overall complexity
+should include an additional n log n. Therefore, the correct time complexity is O(n log n).
+`;

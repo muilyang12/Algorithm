@@ -11,6 +11,8 @@ function ListNode(val, next) {
  * @param {number} n
  * @return {ListNode}
  */
+// time complexity: O(n)
+// space complexity: O(1)
 var removeNthFromEnd = function (head, n) {
   let nodeBeforeSlow = null;
   let slow = head;
