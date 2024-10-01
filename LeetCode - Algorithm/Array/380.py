@@ -42,9 +42,14 @@ class RandomizedSet:
 
 
 """
+If we just want to add and remove elements in O(1), we could use a 'set()', which is very straightforward. 
+However, since we need to use 'random.choice(Array)', we have to use an array for 'self.data'. To achieve 
+O(1) removal with an array, we can use a combination of an array and a 'valueToIndex' hash map to keep 
+track of element positions.
+
 This is a very interesting method where we remove the element we want to remove by replacing it with 
 the last element in the list. In this scenario, the order of elements in `self.data` is not important, 
 so we can freely swap the target element with the last one. The `del` operator would take O(n) time 
 due to shifting elements, but by moving the last element to the position of the target index, we reduce 
-the removal operation to O(1) complexity. This clever trick allows for an efficient way to remove an element without worrying about the overall sequence.
+the removal operation to O(1) complexity.
 """
