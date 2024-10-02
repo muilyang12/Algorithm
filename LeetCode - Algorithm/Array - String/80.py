@@ -52,9 +52,14 @@ class Solution:
 
 
 """
-[0,0,0,0,1,1,1,1,2,3,3]
-                     ^
-des = 7
+I think I did very well with this question. I should have used 'current' to iterate through the array
+and also used 'currentNum' and 'currentCount' to track the number being counted. Additionally, I needed 
+a 'destination' to determine where to place the new number. This thought process was logical and made 
+a lot of sense.
+"""
 
-[0,0,1,1,2,3,3,1,2,3,3]
+"""
+[0,0,0,0,1,1,1,1,2,3,3]
+ ^
+des = None
 """
