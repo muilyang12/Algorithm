@@ -45,3 +45,10 @@ var lowestCommonAncestor = function (root, p, q) {
 
   return pathToP[current - 1];
 };
+
+`
+This is a straightforward DFS problem. During the recursion, I need to build paths to two specific nodes, 
+p and q, using a 'visited' array. When comparing the two 'visited' arrays, there may be multiple common 
+ancestors. To find the 'Lowest Common Ancestor,' I compare both paths from the start and select the last 
+shared node.
+`;

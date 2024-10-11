@@ -28,3 +28,8 @@ class Solution:
                 result += "/"
 
         return result
+
+
+"""
+The hardest part of this problem is recognizing that it's a 'Stack' problem.
+"""

@@ -29,3 +29,12 @@ var hIndex = function (citations) {
 [10, 10, 10]
  ^
 `;
+
+`
+I believe I performed very well this time. 
+
+Initially, I thought I would update the result whenever the value became equal to or smaller than the index. 
+For example, given the array [5, 4, 3, 2, 1], I would stop at the 3rd number because the value 3 is equal to
+the index 3 (i + 1). However, this approach does not work for cases like [10, 10, 10], where the index needs
+to be considered to update the result correctly.
+`;
