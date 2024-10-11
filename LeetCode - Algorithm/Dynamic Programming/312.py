@@ -57,3 +57,13 @@ class Solution:
 [35,16,83,87,84,59,48,41]
  ^  ^        ^
 """
+
+"""
+The reason I solved this problem was to implement the "Chained Matrix Multiplication" algorithm, which I 
+learned in my Analysis of Algorithms course. In this algorithm, the recurrence relation is 
+"M[i][j] = min(k = i to j - 1)(M[i][k] + M[k + 1][j] + p[i - 1] * p[k] * p[j])". To implement this algorithm,
+I needed three loops: the first for i, the second for j, and the third for k.
+
+Initially, I incorrectly assumed that I only needed to compare M[i + 1][j] + ___ and M[i][j - 1] + ___ to get
+M[i][j]. This was a mistake because the newly multiplied matrix could be placed between i and j.
+"""
