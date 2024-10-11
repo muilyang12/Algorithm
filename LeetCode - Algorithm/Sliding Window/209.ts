@@ -26,6 +26,9 @@ function minSubArrayLen(target: number, nums: number[]): number {
 
 `
 Subarray: a contiguous non-empty sequence of elements within an array. -> The elements should be contiguous.
+
+The question asks to find a subarray. Since subarray means contiguous elements, sliding window is a perfect solution.
+And, I can maintain a variable for the sum, adding the right pointer value and subtracting the left pointer value.
 `;
 
 `

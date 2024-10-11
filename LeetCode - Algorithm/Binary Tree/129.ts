@@ -32,3 +32,7 @@ function sumNumbers(root: TreeNode | null): number {
 
   return result;
 }
+
+`
+In this question, I could easily understand that it requires me to use DFS traversal.
+`;

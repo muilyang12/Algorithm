@@ -39,3 +39,7 @@ function isValidSudoku(board: string[][]): boolean {
 
   return true;
 }
+
+`
+It is a very simple question. I can check the row, column, and block in that order.
+`;

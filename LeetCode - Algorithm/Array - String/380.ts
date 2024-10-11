@@ -40,3 +40,9 @@ class RandomizedSet {
     return this.values[randomIndex];
   }
 }
+
+`
+If I use a Set, I can easily use 'has' and 'add' for inserting or removing elements. However, since Set does not 
+support random access due to the lack of indexing, I can't use it here. So, to get a random value, I need to
+maintain a 'values' array along with a 'valueToIndex' hash.
+`;
