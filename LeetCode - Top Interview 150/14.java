@@ -24,3 +24,7 @@ class Solution {
         return commonPrefix;
     }
 }
+
+/*
+ * ["flower","flow","flight"]
+ */
