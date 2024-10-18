@@ -25,3 +25,15 @@ class Solution:
                     right = mid - 1
 
         return nums[left]
+
+
+"""
+In this question, the problem explicitly states that the algorithm must run in O(log n) time, making it 
+straightforward to think of using a binary search. However, in most cases, there won't be such a clear hint, 
+so I need to recognize when to apply binary search on my own.
+
+I believe the key condition is when the problem asks me to find one specific element. If I need to select
+two points to satisfy a certain condition or calculate a value within a range, I would use approaches like
+two pointers or sliding windows. But when I'm tasked with finding a single element that meets specific 
+condition, it's very likely a binary search problem.
+"""
