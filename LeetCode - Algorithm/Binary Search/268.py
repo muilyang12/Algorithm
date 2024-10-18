@@ -6,10 +6,8 @@ from typing import List
 
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        piles = sorted(piles)
-
         left = 1
-        right = piles[-1]
+        right = max(piles)
 
         while left <= right:
             mid = (left + right) // 2
