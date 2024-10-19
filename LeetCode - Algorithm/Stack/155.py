@@ -48,3 +48,13 @@ class MinStack:
         lastElement = self.stack[-1]
 
         return lastElement.currentMin
+
+
+"""
+This idea is extremely awesome!
+
+I can make each stack element remember the current minimum value of the entire stack. With this approach, 
+the push operation will take O(1) time because I only need to check the current minimum value at the top of 
+the stack and compare it with the new value. At the same time, the pop operation will also be O(1) because 
+I don't need to update the minimum value — the next element in the stack already stores its own current minimum.
+"""
