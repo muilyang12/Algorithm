@@ -40,3 +40,14 @@ class Solution:
 
 # 0 -> 2 (Will be 1)
 # 1 -> 3 (Will be 0)
+
+"""
+I think this question is quite easy.
+
+The first thing I need to do is create a function to count live neighbors. When it comes to updating the 
+current state based on the count of live neighbors, there are two approaches. One approach is to create 
+a separate array to keep track of the coordinates that need to be updated later without modifying the board 
+right away. The other approach is to change 0 to 2 and 1 to 3, allowing me to use the % operator to treat 
+2 as 0 and 3 as 1 (using board[i][j] % 2 == 0 or board[i][j] % 2 == 1). I think the second method is better 
+because it requires less space, so I chose it.
+"""
