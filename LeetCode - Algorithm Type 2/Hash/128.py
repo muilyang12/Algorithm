@@ -13,7 +13,7 @@ class Solution:
 
             targets.append(num)
 
-        count = -1
+        count = 0
 
         for target in targets:
             currentCount = 0
