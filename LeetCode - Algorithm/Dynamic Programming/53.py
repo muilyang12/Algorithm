@@ -5,14 +5,22 @@ from typing import List
 
 
 class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
-        memo = [0] * len(nums)
-        memo[0] = nums[0]
+    def maxSubArray1(self, nums: List[int]) -> int:
+        memo = [num for num in nums]
 
         for i in range(1, len(nums)):
-            memo[i] = max(memo[i - 1] + nums[i], nums[i])
+            memo[i] = max(memo[i], memo[i - 1] + nums[i])
 
         return max(memo)
+
+    def maxSubArray2(self, nums: List[int]) -> int:
+        currentMax = globalMax = nums[0]
+
+        for i in range(1, len(nums)):
+            currentMax = max(currentMax + nums[i], nums[i])
+            globalMax = max(globalMax, currentMax)
+
+        return globalMax
 
 
 """
