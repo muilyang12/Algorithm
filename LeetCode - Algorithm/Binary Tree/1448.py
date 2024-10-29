@@ -51,3 +51,12 @@ class Solution:
         dfs(root, -math.inf, result)
 
         return len(result)
+
+
+"""
+As you can see, I initially used a "route" parameter in the DFS function. When I ran the code on LeetCode, it ranked only in 
+the 5th percentile for runtime, which was disappointing. After reviewing solutions with a similar approach, I realized the 
+"route" parameter was unnecessary. All I needed was the maxValue so far. This is a recurring issue for me, especially in 
+sliding window problems: I often over-traverse the array when I only need a specific value. Instead, I should focus on tracking 
+that value directly.
+"""
