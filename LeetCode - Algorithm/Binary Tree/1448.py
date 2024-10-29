@@ -3,6 +3,7 @@
 
 
 from typing import List
+import math
 
 
 class TreeNode:
@@ -13,7 +14,7 @@ class TreeNode:
 
 
 class Solution:
-    def goodNodes(self, root: TreeNode) -> int:
+    def goodNodes1(self, root: TreeNode) -> int:
         def dfs(node: TreeNode, route: List[TreeNode], result: List[TreeNode]):
             if not node:
                 return
@@ -30,5 +31,23 @@ class Solution:
 
         result = []
         dfs(root, [], result)
+
+        return len(result)
+
+    def goodNodes2(self, root: TreeNode) -> int:
+        def dfs(node: TreeNode, maxValue: int, result: List[TreeNode]):
+            if not node:
+                return
+
+            if node.val >= maxValue:
+                result.append(node)
+
+                maxValue = node.val
+
+            dfs(node.left, maxValue, result)
+            dfs(node.right, maxValue, result)
+
+        result = []
+        dfs(root, -math.inf, result)
 
         return len(result)
