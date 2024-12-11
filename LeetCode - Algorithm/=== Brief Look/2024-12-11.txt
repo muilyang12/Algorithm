@@ -1,0 +1,26 @@
+15
+-> Two Pointers -> Sort the array -> for loop with i from 0 to n - 3 -> j, k two pointer while loop -> j starts from i + 1, k starts from n - 1 -> while loop's condition is j < k -> Sum is +, move k and Sum is -, move j
+
+21
+-> List -> Make head, current, and two more pointers for two lists -> p1's value >= p2's value, current = p2 and p2 = p2.next, current.next = None
+
+82
+-> List -> slow = head and fast = head.next pointers -> slow's value = fast's value, fast = fast.next -> If different, slow.next = fast
+
+101
+-> BFS -> Two None, ignore & One None, put None and the number on the other side. -> I should use while and for
+
+102
+-> BFS -> Use depth value -> Or, use for inside of while loop
+
+129
+-> DFS -> Use route parameter -> When the node has two None, append results
+
+290
+-> Hash -> Split second string with " " empty string -> for loop with the first string -> Use one dictionary and compare or put in it
+
+383
+-> Hash -> Use dict to count each character -> Subtract 1 with magazine's each character
+
+392
+-> Two Pointers -> One pointer is pointing s and the other one is pointing t -> p1 is staying and p2 keep moving -> when p1's letter == p2's letter, p1 moves
