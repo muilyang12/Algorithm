@@ -1,3 +1,6 @@
+// 872. Leaf-Similar Trees
+// https://leetcode.com/problems/leaf-similar-trees/
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,13 +28,13 @@ class Solution {
         List<Integer> leafValues1 = new ArrayList<>();
         List<Integer> leafValues2 = new ArrayList<>();
 
-        this.dfs(root1, leafValues1);
-        this.dfs(root2, leafValues2);
+        this.collectLeafs(root1, leafValues1);
+        this.collectLeafs(root2, leafValues2);
 
         return leafValues1.equals(leafValues2);
     }
 
-    public void dfs(TreeNode node, List<Integer> leafValues) {
+    public void collectLeafs(TreeNode node, List<Integer> leafValues) {
         if (node == null) {
             return;
         }
@@ -42,8 +45,8 @@ class Solution {
             return;
         }
 
-        dfs(node.left, leafValues);
-        dfs(node.right, leafValues);
+        collectLeafs(node.left, leafValues);
+        collectLeafs(node.right, leafValues);
 
     }
 }
