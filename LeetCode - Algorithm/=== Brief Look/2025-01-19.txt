@@ -1,0 +1,29 @@
+283
+-> Two Pointers -> left, right two pointers -> initial pointers should be 0 -> if left == right and left == 0 then right += 1 -> if right != 0 then swap left and right -> left = right and right += 1 -> keep searching
+
+167
+-> Two Pointers -> initial left = 0 initial right = len() - 1 -> if left + right < target then left += 1 elif left + right > target then right -= 1 else return left and right
+
+2
+-> Linked List -> ptr1, ptr2 = l1, l2 -> make a deque push at left value of ptr1 + ptr2 -> ptr1 = ptr1.next ptr2 = ptr2.next -> ptr1 and ptr2 calculate ptr1.val + ptr2.val -> if value sum >= 10 then deque[0] + 1 and pop left with the rest value -> update deque can be independent function
+
+86
+-> Linked List -> make two dummy node -> the first one is for smaller than x node and the second one is for larger than x node -> use current1 and current2 for each -> current1.next = dummy2 -> done
+
+56
+-> Interval -> result = [] result.append(first interval) -> ptr1 is pointing result array and ptr2 is pointing intervals -> if there is overlap then merge
+
+129
+-> Binary Tree -> DFS -> collect numbers on the way to DFS -> make sum result
+
+133
+-> Graph -> i have to use hash, which is the key to solve it easily -> make cloneNode function -> for neighbor in neighbors cloneNode(neighbor) -> if hash[neighbor]: return it
+
+215
+-> Heap -> minHeap = [:k] -> it is the smartest method -> normally heapq makes min heap -> kth largest == (n-k)th smallest -> if remove n - k - 1 elements then the smallest one from the rest will be the n - k smallest and k largest -> heapq.heapify(minHeap) -> from k + 1 to the last heappop and heappush
+
+139
+-> DP -> this is the question checking whether it is true or false along the string -> typical dp question -> make a memo array [False] * (len + 1) -> memo[0] = True -> for and for, two for loop will get me the answer
+
+300
+-> DP -> current is from 0 to len - 1 -> make for loop from 0 to current -> choose the value smaller than nums[current] and largest memo value
