@@ -1,0 +1,14 @@
+80
+-> Array -> i am going to use hash map -> it is sorted in non-decreasing order -> better one will be using two variable -> if same with previous number then increase the count
+
+125
+-> Two Pointers -> palindrome -> i'd better remember this word palindrome -> left starts from 0 and right starts from len - 1 -> in order to remove, use list("abcde...")
+
+209
+-> Sliding Window -> subarray means that i have to use sliding window satisfying certain condition -> left = 0 and right = 0 and moves -> sum > target update the result and keep moving to the next
+
+155
+-> Stack -> getMin is the biggest difference from other questions -> so let each stack have minimum value so far
+
+146
+-> Linked List -> lru cache means linked list -> have to make appendNode and removeNode -> node should have prev and next -> have to use a cache key to node
