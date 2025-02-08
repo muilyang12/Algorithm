@@ -29,3 +29,12 @@ class Solution {
         return result;
     }
 }
+
+/*
+ * If I want an immutable empty set (No elements can be added), use Set.of()
+ * Set<String> vowels = Set.of('a', 'e', 'i', 'o', 'u');
+ * 
+ * If I want a mutable empty set, I have to use HashSet
+ * Set<Character> vowels = new HashSet<>();
+ * Collections.addAll(vowels, 'a', 'e', 'i', 'o', 'u');
+ */
