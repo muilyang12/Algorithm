@@ -19,7 +19,7 @@ class SmallestInfiniteSet {
     public int popSmallest() {
         int result;
 
-        if (this.minHeap.size() == 0) {
+        if (this.minHeap.isEmpty()) {
             result = numberWhenEmpty;
             numberWhenEmpty++;
         } else {
@@ -38,6 +38,6 @@ class SmallestInfiniteSet {
             return;
 
         this.set.add(num);
-        this.minHeap.add(num);
+        this.minHeap.offer(num);
     }
 }
