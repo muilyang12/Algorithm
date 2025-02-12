@@ -56,3 +56,23 @@ class Solution {
         return result;
     }
 }
+
+/*
+ * In Java,
+ * 
+ * Set<String> hashSet = new HashSet<>();
+ * 
+ * Map<String, Integer> hashMap = new HashMap<>();
+ * 
+ * Stack<String> stack = new Stack<>();
+ * 
+ * Queue<String> queue = new ArrayDeque<>();
+ * -> queue.offer();
+ * -> queue.poll();
+ * 
+ * ArrayDeque<String> deque = new ArrayDeque<>();
+ * -> deque.addFirst();
+ * -> deque.addLast();
+ * -> deque.removeFirst();
+ * -> deque.removeLast();
+ */
