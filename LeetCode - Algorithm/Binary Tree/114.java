@@ -23,7 +23,7 @@ class TreeNode {
 }
 
 class Solution {
-    public void flatten(TreeNode root) {
+    public void flatten1(TreeNode root) {
         if (root == null)
             return;
 
@@ -44,7 +44,23 @@ class Solution {
                 node.right = stack.peek();
         }
     }
-}
 
-// [5, 4, 3]
-// 2
+    public void flatten2(TreeNode root) {
+        if (root == null)
+            return;
+
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+
+        this.flatten2(left);
+        this.flatten2(right);
+
+        root.left = null;
+        root.right = left;
+
+        TreeNode current = root;
+        while (current.right != null)
+            current = current.right;
+        current.right = right;
+    }
+}
