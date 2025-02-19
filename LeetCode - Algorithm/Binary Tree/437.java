@@ -62,3 +62,12 @@ class Solution {
  * problem. I must be cautious when performing arithmetic operations in Java and
  * check the constraints.
  */
+
+/*
+ * In this problem, I initially tried to use the function 'pathSum' recursively.
+ * However, I encountered an issue when using just a single function. Once
+ * subtraction starts, it must continue throughout the recursion until it
+ * either succeeds or fails. Alternating between subtracting and not subtracting
+ * is not allowed. Therefore, a flag variable "isAdding" is needed to track
+ * whether subtraction has started.
+ */
