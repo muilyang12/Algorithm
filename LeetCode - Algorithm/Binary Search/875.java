@@ -42,3 +42,14 @@ class Solution {
  * 
  * System.out.println((double) 7 / 3); // Output: 2.3333333333333335
  */
+
+/*
+ * In Java, the 'int' type can store values ranging from -2,147,483,648 to
+ * 2,147,483,647 (Roughly -2 × 10^9 to 2 × 10^9).
+ * 
+ * In this problem, the constraints for element values are 1 <= piles[i] <=
+ * 10^9, meaning that adding or subtracting just two or three such values can
+ * exceed the 'int' range. Therefore, I need to use the 'long' type for variable
+ * hours in this problem. I must be cautious when performing arithmetic
+ * operations in Java and check the constraints.
+ */
