@@ -50,3 +50,72 @@ class Solution {
 }
 
 // digits = "23"
+
+/*
+ * In Java,
+ * 
+ * 1. Array Initialization
+ * int[] arr1 = {1, 2, 3};
+ * int[] arr2 = new int[]{1, 2, 3};
+ * 
+ * The "new" keyword is required when initializing an array with values unless
+ * it's part of a declaration.
+ * 
+ * int[] arr3;
+ * arr3 = {1, 2, 3}; // Wrong
+ * 
+ * int[] arr3;
+ * arr4 = new int[]{1, 2, 3}; // Okay
+ * 
+ * hash.put(1, { 'a', 'b', 'c' }); // Wrong
+ * 
+ * hash.put(1, new char[] { 'a', 'b', 'c' }); // Okay
+ * 
+ * 
+ * 
+ * 2. List Initialization
+ * 
+ * - Mutable List
+ * List<Integer> mutableList = new ArrayList<>(Arrays.asList(1, 2, 3));
+ * 
+ * - Immutable List
+ * List<Integer> immutableList = List.of(1, 2, 3);
+ * 
+ * 
+ * 
+ * 3. Set Initialization
+ * 
+ * - Mutable Set
+ * Set<Integer> mutableSet = new HashSet<>(Arrays.asList(1, 2, 3));
+ * 
+ * - Immutable Set
+ * Set<Integer> immutableSet = Set.of(1, 2, 3);
+ * 
+ * 
+ * 
+ * 4. Map Initialization
+ * Unlike Python, Java does not have direct dictionary literals.
+ * 
+ * - Mutable Map
+ * Map<String, Integer> mutableMap = new HashMap<>();
+ * mutableMap.put("a", 1);
+ * mutableMap.put("b", 2);
+ * mutableMap.put("c", 3);
+ * 
+ * - Immutable Map
+ * Map<String, Integer> immutableMap = Map.of("a", 1, "b", 2);
+ */
+
+/*
+ * public void processArray(int[] numbers)
+ * -> processArray(new int[]{1, 2, 3});
+ * 
+ * public void processList(List<Integer> numbers)
+ * -> processList(Arrays.asList(4, 5, 6));
+ * 
+ * public void processSet(Set<String> items)
+ * -> processSet(new HashSet<>(Arrays.asList("A", "B", "C")));
+ * 
+ * public void processMap(Map<String, Integer> map)
+ * -> Impossible to use with Mutable Map.
+ */
