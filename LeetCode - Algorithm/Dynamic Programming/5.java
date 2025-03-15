@@ -58,3 +58,25 @@ class Solution {
  * ___a
  * a [t]
  */
+
+/*
+ * In this problem, I can practice various ways of iterating through a 2D array.
+ * Normally, I've often iterated from (0,0) to (length - 1, length - 1).
+ * However, in this case, I can also practice iterating from the top-right to
+ * the bottom-left, as well as from the bottom-left to the top-right.
+ * 
+ * for (int i = 0; i < s.length(); i++) {
+ * for (int j = i + 2; j < s.length(); j++) {
+ * 
+ * Initially, I filled the memo using this approach. However, this method
+ * couldn't handle cases like "aaaaa" properly. In this case, you need to
+ * iterate diagonally from the center toward the upper-right direction.
+ * 
+ * for (int i = 2; i < s.length(); i++) {
+ * for (int j = 0; j < s.length() - i; j++) {
+ * 
+ * To achieve this, the nested for-loop should be written in this form.
+ * 
+ * Here, "i" represents the gap between rows and columns, while `j` represents
+ * the row index. This seems like a very effective approach.
+ */
