@@ -1,6 +1,8 @@
 // 62. Unique Paths
 // https://leetcode.com/problems/unique-paths/
 
+// time complexity: O(m + n + mn) = O(mn)
+// space complexity: O(mn)
 class Solution {
     public int uniquePaths(int m, int n) {
         int[][] memo = new int[m][n];

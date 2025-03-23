@@ -1,6 +1,8 @@
 // 5. Longest Palindromic Substring
 // https://leetcode.com/problems/longest-palindromic-substring/
 
+// time complexity: O(n + n + n^2 + n^2) = O(2 * n^2) = O(n^2)
+// space complexity: O(n^2)
 class Solution {
     public String longestPalindrome(String s) {
         boolean[][] memo = new boolean[s.length()][s.length()];
